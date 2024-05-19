@@ -13,15 +13,16 @@ defmodule May19 do
 
   """
   def make_a_file do
-    body = "Hi, World!"
-    body |> File.write("hoge.txt")
+    body = "Hello, World!"
+    File.write("hoge.txt", body)
     File.read("hoge.txt")
   end
 
   @spec make_another_file() :: none()
   def make_another_file do
     body = "Oh No, World!"
-    body |> File.write("fuga.txt", body) #第二引数には渡せない
+    # 第二引数には渡せない
+    body |> File.write("fuga.txt", body)
     File.read("fuga.txt")
   end
 
