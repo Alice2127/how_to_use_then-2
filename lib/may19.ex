@@ -19,14 +19,15 @@ defmodule May19 do
   end
 
   @spec make_another_file() :: none()
+  # then句無しではパイプ演算子の左側の要素を第二引数には渡せないためこの関数は実行するとエラーになる
   def make_another_file do
     body = "Oh No, World!"
-    # 第二引数には渡せない
     body |> File.write("fuga.txt", body)
     File.read("fuga.txt")
   end
 
   def make_a_file_using_then do
+  # then句を使用してパイプ演算子の左側の要素を第二引数に渡せた
     body = "Hi, World!"
     body |> then(fn x -> File.write("piyo.txt", x) end)
     File.read("piyo.txt")
